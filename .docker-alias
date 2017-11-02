@@ -53,3 +53,5 @@ ddang() { docker images -q --filter "dangling=true" | xargs docker rmi; }
 # Nuke the docker directory
 dnuke() { rm -rf ~/Library/Containers/com.docker.docker/; }
 
+# Remove all dangling volumes
+vdang() { docker volume rm $(docker volume ls -qf dangling=true) }
